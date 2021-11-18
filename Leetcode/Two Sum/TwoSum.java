@@ -2,7 +2,7 @@ package pl.patryktubicz;
 
 import java.util.Arrays;
 
-public class Main {
+public class TwoSum {
     private static int[] sum_of_two(int[] nums, int target) {
         if(nums.length != 0) {
             for(int i = 0; i < nums.length; i++) {
