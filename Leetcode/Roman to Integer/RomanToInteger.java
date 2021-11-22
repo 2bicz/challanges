@@ -1,12 +1,17 @@
-class BinarySearch {
-    public int search(int[] nums, int target) {
-        int left = 0, right = nums.length - 1;
-        int shoot = nums.length / 2;
-        while(left <= right){
-            if(target == nums[shoot]) return shoot;
-            else if(target < nums[shoot]) right = shoot - 1;
-            else if(target > nums[shoot]) left = shoot + 1;
-            shoot = (left + right) / 2;
+/* The isBadVersion API is defined in the parent class VersionControl.
+      boolean isBadVersion(int version); */
+
+public class FirstBadVersion extends VersionControl {
+    public int firstBadVersion(int n) {
+        int left = 0, right = n;
+        int shot = n / 2;
+        while left <= right{
+            if(isBadVersion(shot) == false) left = shot + 1;
+            else if(isBadVersion(shot) == true){
+                if(isBadVersion(shot - 1) == false) return shot;
+                right = shot - 1;
+            }
+            shot = (left + right) / 2;
         }
         return -1;
     }
