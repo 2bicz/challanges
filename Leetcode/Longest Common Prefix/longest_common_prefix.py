@@ -1,10 +1,8 @@
-def longestCommonPrefix(strs: list[str]) -> str:
-
-    for word in strs:
-        word_len = len(word)
-        word_mid = round(word_len / 2)
-        print(word_mid)
-
-
-
-#longestCommonPrefix(["aaa", "bbb"])
+class Solution:
+    def longestCommonPrefix(self, strs: list[str]) -> str:
+        prefix = strs[0]
+        for i in range(1, len(strs)):
+            while strs[i].find(prefix):
+                prefix = prefix[0: len(prefix) - 1]
+                if prefix is None: return ""
+        return prefix
